@@ -46,8 +46,7 @@ class Configuration
 
     public function getToDoListController()
     {
-        $loginModel = $this->getLoginModel();
-        return new ToDoListController($this->getRender(), $loginModel);
+        return new ToDoListController($this->getRender());
     }
 
 
