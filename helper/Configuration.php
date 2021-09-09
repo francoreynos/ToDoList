@@ -5,6 +5,8 @@ include_once("helper/UrlHelper.php");
 
 include_once("controller/ToDoListController.php");
 
+include_once("model/ToDoListModel.php");
+
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -46,7 +48,14 @@ class Configuration
 
     public function getToDoListController()
     {
-        return new ToDoListController($this->getRender());
+        $toDoListModel = $this->getToDoListModel();
+        return new ToDoListController($this->getRender(),$toDoListModel);
+    }
+
+    public function getToDoListModel()
+    {
+        $database = $this->getDatabase();
+        return new ToDoListModel($database);
     }
 
 

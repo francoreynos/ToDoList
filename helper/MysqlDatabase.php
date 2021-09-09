@@ -19,6 +19,11 @@ class MysqlDatabase
         $this->connection = $conn;
     }
 
+    public function execute($sql)
+    {
+        mysqli_query($this->connection, $sql);
+    }
+
     public function query($sql)
     {
        $data=$this->connection->query($sql);

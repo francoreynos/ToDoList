@@ -1,11 +1,10 @@
 <?php
 include_once("helper/Configuration.php");
 
-session_start();
 $configuration = new Configuration();
 
 $urlHelper = $configuration->getUrlHelper();
-$module = $urlHelper->getModuleFromRequestOr("transaff");
+$module = $urlHelper->getModuleFromRequestOr("ToDoList");
 $action = $urlHelper->getActionFromRequestOr("execute");
 
 
