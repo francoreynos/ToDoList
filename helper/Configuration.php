@@ -4,8 +4,10 @@ include_once("helper/Render.php");
 include_once("helper/UrlHelper.php");
 
 include_once("controller/ToDoListController.php");
+include_once("controller/AnalyticsController.php");
 
 include_once("model/ToDoListModel.php");
+include_once("model/AnalyticsModel.php");
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -58,6 +60,17 @@ class Configuration
         return new ToDoListModel($database);
     }
 
+    public function getAnalyticsController(){
 
+        $AnalyticsModel = $this->getAnalyticsModel();
+        return new AnalyticsController($this->getRender(),$AnalyticsModel);
+
+    }
+
+    public function getAnalyticsModel()
+    {
+        $database = $this->getDatabase();
+        return new AnalyticsModel($database);
+    }
 
 }
