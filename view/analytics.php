@@ -14,14 +14,18 @@
                     <form id="myform" action="/analytics/execute" enctype="multipart/form-data" method="get">
                         <input type="hidden" value="1" name="createdAndCompleted">
                         <li class="nav-item">
-                            <input type="date" style="margin-left: 7%; margin-bottom: 5px; margin-right: 7%" name="date2" required>
+                            <input type="date" style="margin-left: 7%; margin-bottom: 5px; margin-right: 7%"
+                                   name="date2" required>
                         </li>
                         <li class="nav-item">
-                            <input type="date" style="margin-left: 7%; margin-bottom: 5px; margin-right: 7%" name="date1" required>
+                            <input type="date" style="margin-left: 7%; margin-bottom: 5px; margin-right: 7%"
+                                   name="date1" required>
                         </li>
 
                         <li class="nav-item">
-                            <a onclick="document.getElementById('myform').submit()" style="margin-left: 7%; margin-right: 7%" class="nav-link active border border-primary" aria-current="page" href="#">
+                            <a onclick="document.getElementById('myform').submit()"
+                               style="margin-left: 7%; margin-right: 7%" class="nav-link active border border-primary"
+                               aria-current="page" href="#">
                                 <span data-feather="home"></span>
                                 Search
                             </a>
@@ -35,19 +39,22 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">
+                        <a class="nav-link" aria-current="page"
+                           href="/analytics/execute?createdAndCompleted=1&date1={{date1}}&date2={{date2}}">
                             <span data-feather="home"></span>
                             Created And Completed
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">
+                        <a class="nav-link " aria-current="page"
+                           href="/analytics/execute?created=1&date1={{date1}}&date2={{date2}}">
                             <span data-feather="home"></span>
                             Created
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">
+                        <a class="nav-link " aria-current="page"
+                           href="/analytics/execute?completed=1&date1={{date1}}&date2={{date2}}">
                             <span data-feather="home"></span>
                             Completed
                         </a>
@@ -70,15 +77,15 @@
             </div>
 
             {{#created}}
-            <h4 class="h6">Tasks Created Between '{{date1}}' and '{{date2}}'</h4>
+            <h4 class="h6">Tasks Created Between '{{date2}}' and '{{date1}}'</h4>
             {{/created}}
 
             {{#completed}}
-            <h4 class="h6">Tasks Completed Between '{{date1}}' and '{{date2}}'</h4>
+            <h4 class="h6">Tasks Completed Between '{{date2}}' and '{{date1}}'</h4>
             {{/completed}}
 
             {{#createdAndCompleted}}
-            <h4 class="h6">Tasks Created and Completed Between '{{date1}}' and '{{date2}}'</h4>
+            <h4 class="h6">Tasks Created and Completed Between '{{date2}}' and '{{date1}}'</h4>
             {{/createdAndCompleted}}
 
             <div class="table-responsive">
@@ -95,7 +102,7 @@
                     <tbody>
                     {{#created}}
                     {{#tasksCreated}}
-                    <tr>
+                    <tr class="row1">
                         <td>{{id}}</td>
                         <td>{{name}}</td>
                         <td><input type="checkbox" checked disabled></td>
@@ -106,7 +113,7 @@
                     {{/created}}
                     {{#completed}}
                     {{#tasksCompleted}}
-                    <tr>
+                    <tr class="row1">
                         <td>{{id}}</td>
                         <td>{{name}}</td>
                         <td><input type="checkbox" checked disabled></td>
@@ -117,7 +124,7 @@
                     {{/completed}}
                     {{#createdAndCompleted}}
                     {{#tasksCreatedAndCompleted}}
-                    <tr>
+                    <tr class="row1">
                         <td>{{id}}</td>
                         <td>{{name}}</td>
                         <td><input type="checkbox" checked disabled></td>
@@ -126,6 +133,15 @@
                     </tr>
                     {{/tasksCreatedAndCompleted}}
                     {{/createdAndCompleted}}
+
+                    <tr style="background-color: royalblue" >
+                        <td style="color: white">TOTAL</td>
+                        <td style="color: white"></td>
+                        <td style="color: white"></td>
+                        <td style="color: white"></td>
+                        <td class="total" style="color: white"></td>
+                    </tr>
+
                     </tbody>
             </div>
 
