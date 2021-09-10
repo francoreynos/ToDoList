@@ -134,7 +134,7 @@
                     {{/tasksCreatedAndCompleted}}
                     {{/createdAndCompleted}}
 
-                    <tr style="background-color: royalblue" >
+                    <tr style="background-color: royalblue">
                         <td style="color: white">TOTAL</td>
                         <td style="color: white"></td>
                         <td style="color: white"></td>

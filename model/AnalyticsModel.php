@@ -10,7 +10,8 @@ class AnalyticsModel
         $this->database = $database;
     }
 
-    public function getCurrentDate(){
+    public function getCurrentDate()
+    {
         $sql = 'SELECT curdate()';
 
         $table = $this->database->query($sql);
@@ -18,7 +19,8 @@ class AnalyticsModel
         return $data["curdate()"];
     }
 
-    public function getCurrentDateMinus7Days(){
+    public function getCurrentDateMinus7Days()
+    {
         $sql = "SELECT DATE_SUB(curdate(),INTERVAL '7' DAY)";
 
         $table = $this->database->query($sql);
@@ -26,9 +28,10 @@ class AnalyticsModel
         return $data["DATE_SUB(curdate(),INTERVAL '7' DAY)"];
     }
 
-    public function getTasksCompletedBetween($date1,$date2){
+    public function getTasksCompletedBetween($date1, $date2)
+    {
 
-        $sql = 'SELECT * FROM to_do WHERE completed_at <= "'.$date1.'" and completed_at >= "'. $date2 .'"';
+        $sql = 'SELECT * FROM to_do WHERE completed_at <= "' . $date1 . '" and completed_at >= "' . $date2 . '"';
         $table = $this->database->query($sql);
         $datos = array();
         while ($fila = $table->fetch_assoc()) {
@@ -37,8 +40,9 @@ class AnalyticsModel
         return $datos;
     }
 
-    public function getTasksCreatedBetween($date1,$date2){
-        $sql = 'SELECT * FROM to_do WHERE created_at <= "'.$date1.'" and created_at >= "'. $date2 .'"';
+    public function getTasksCreatedBetween($date1, $date2)
+    {
+        $sql = 'SELECT * FROM to_do WHERE created_at <= "' . $date1 . '" and created_at >= "' . $date2 . '"';
         $table = $this->database->query($sql);
         $datos = array();
         while ($fila = $table->fetch_assoc()) {
@@ -47,8 +51,9 @@ class AnalyticsModel
         return $datos;
     }
 
-    public function getTasksCreatedAndCompletedBetween($date1,$date2){
-        $sql = 'SELECT * FROM to_do WHERE created_at and completed_at <= "'.$date1.'" and created_at and completed_at >= "'. $date2 .'"';
+    public function getTasksCreatedAndCompletedBetween($date1, $date2)
+    {
+        $sql = 'SELECT * FROM to_do WHERE created_at and completed_at <= "' . $date1 . '" and created_at and completed_at >= "' . $date2 . '"';
         $table = $this->database->query($sql);
         $datos = array();
         while ($fila = $table->fetch_assoc()) {
@@ -56,8 +61,6 @@ class AnalyticsModel
         }
         return $datos;
     }
-
-
 
 
 }

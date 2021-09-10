@@ -18,14 +18,17 @@ class ToDoListController
     }
 
     public function checkedTasks(){
+        $data["completedTitle"] = 1;
         $data["completedTasks"] = $this->toDoListModel->getAllCompletedTasks();
         echo $this->render->render("view/inicio.php",$data);
     }
     public function uncheckedTasks(){
+        $data["notCompletedTitle"] = 1;
         $data["notCompletedTasks"] = $this->toDoListModel->getAllNotCompletedTasks();
         echo $this->render->render("view/inicio.php",$data);
     }
     public function deletedTasks(){
+        $data["deletedTitle"] = 1;
         $data["deletedTasks"] = $this->toDoListModel->getAllDeletedTasks();
         echo $this->render->render("view/inicio.php",$data);
     }
