@@ -53,11 +53,13 @@
                 {{/deletedTitle}}
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <a type="button" href="#textBox" class="btn btn-sm btn-outline-secondary" onclick="showTextBox()">New
+                        <a type="button" href="#textBox" class="btn btn-sm btn-outline-secondary"
+                           onclick="showTextBox()">New
                             Task
                         </a>
                     </div>
-                    <a type="button" href="/Analytics/execute?createdAndCompleted=1" class="btn btn-sm btn-outline-secondary">
+                    <a type="button" href="/Analytics/execute?createdAndCompleted=1"
+                       class="btn btn-sm btn-outline-secondary">
                         Analytics
                     </a>
 
